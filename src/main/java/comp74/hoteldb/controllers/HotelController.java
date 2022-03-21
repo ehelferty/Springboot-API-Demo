@@ -94,19 +94,19 @@ public class HotelController {
      * http://localhost:8080/api/guests?pageNumber=N
      * 
      * 
-     * @param pageNumber
-     * @param sortBy
+     * @param page
+     * @param sort
      * @return
      */
     @GetMapping("/guests")
     public Page<Guest> getGuests(
-        @RequestParam(defaultValue = "0") Integer pageNumber,
-        @RequestParam(defaultValue = "id") String sortBy 
+        @RequestParam(defaultValue = "0") Integer page,
+        @RequestParam(defaultValue = "id") String sort 
         )
     {
         PageRequest pageInfo;
 
-        pageInfo = PageRequest.of(pageNumber, 10, Sort.by(sortBy));
+        pageInfo = PageRequest.of(page, 12, Sort.by(sort));
 
         //Want to return a page of data, not a list
         return (Page<Guest>) guestRepo.findAll(pageInfo);
