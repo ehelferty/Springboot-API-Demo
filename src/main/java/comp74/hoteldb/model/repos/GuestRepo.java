@@ -1,9 +1,10 @@
 package comp74.hoteldb.model.repos;
 
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import comp74.hoteldb.model.entities.Guest;
 
-public interface GuestRepo extends CrudRepository<Guest, Long >{
+public interface GuestRepo extends PagingAndSortingRepository<Guest, Long>{
     
 }
