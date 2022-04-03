@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import comp74.hoteldb.model.repos.RoomRepo;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class HotelController {
 
     RoomRepo roomRepo;
@@ -32,11 +34,6 @@ public class HotelController {
         this.roomRepo = roomRepo;
         this.guestRepo = guestRepo;
     }
-
-    // @GetMapping("/rooms")
-    // public List<Room> getRooms() {
-    //     return (List<Room>) roomRepo.findAll();
-    // }
 
     /**
      * http://localhost:8080/api/rooms?pageNumber=N
@@ -112,7 +109,4 @@ public class HotelController {
         return (Page<Guest>) guestRepo.findAll(pageInfo);
 
     }
-
-
-
 }
